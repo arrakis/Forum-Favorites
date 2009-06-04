@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/ -->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.1.xsd">
+
+	<header>
+	  <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+	  <title lang="en">Forum Favorites</title>
+	  <description lang="en">Adds a spot in the UCP for the user to enter their favorite movies, television shows, bands, etc. 
+This information is displayed on their profile. There is also a global Forum Favorites page which shows the most popular favorites for all users.</description>
+	  <author-notes lang="en">
+After installing the mod, make sure to refresh your template cache and imageset cache through the ACP and follow the DIY instructions at the bottom to set up the ACP and UCP modules.
+If no categories are showing up for you, that is probably because you forgot to create them or activate them through the ACP module.
+Remember to also set the View Forum Favorites module to Enabled but Hidden.</author-notes>
+	  <author-group>
+		<author>
+		  <username>Agrajag</username>	
+		</author>
+	  </author-group>
+	  <mod-version>1.0.4</mod-version>
+	  <installation>
+		<level>intermediate</level>
+		<time>1200</time>
+		<target-version>3.0.2</target-version>
+	  </installation>
+
+		<link-group>
+			<link type="template" href="subsilver2.xml" lang="en">subsilver2</link>
+		</link-group>
+		
+		<history>
+          <entry>
+			<date>2008-10-09</date>
+			<rev-version>1.0.4</rev-version>
+			<changelog lang="en">
+			  <change>Code cleanup</change>
+            </changelog>
+          </entry>
+          <entry>
+			<date>2008-10-07</date>
+			<rev-version>1.0.3</rev-version>
+			<changelog lang="en">
+			  <change>Made code formating changes requested by ModDB team.</change>
+              <change>Fixed a bug with UTF8 support</change>
+            </changelog>
+          </entry>
+          <entry>
+			<date>2008-09-17</date>
+			<rev-version>1.0.2</rev-version>
+			<changelog lang="en">
+			  <change>Fixed numerous bugs and phpBB coding standard failures reported during MOD validation of v1.0.0</change>
+              <change>Image icons are now part of the style you have set, so you can have different icons for different styles.</change>
+              <change>Icons for the link on the header bar have been added.</change>
+              <change>Renaming and deleting categories is now logged.</change>
+              <change>Activating/deactivating categories now instantly brings you back to the category list without displaying a success message.</change>
+              <change>Edited favorite list template to work around IE6's poor handling of the Button element. The Add/View Users buttons should now work as expected in IE6.</change>
+            </changelog>
+          </entry>
+          <entry>
+			<date>2008-09-14</date>
+			<rev-version>1.0.1</rev-version>
+			<changelog lang="en">
+			  <change>The Add/View Users buttons on the Forum Favorites pages now work with special characters (non-ASCII)</change>
+              <change>Fixed bug on prosilver template where the Add/View buttons wouldn't work if you had them set to display in their own column.</change>
+              <change>Fixed some error checking bugs. Empty favorites (blank lines) are no longer allowed.</change>
+            </changelog>
+          </entry>
+          
+		  <entry>
+			<date>2008-09-01</date>
+			<rev-version>1.0.0</rev-version>
+			<changelog lang="en">
+			  <change>First official release</change>
+			  <change>Fixed current category display so it is actually correct all the time.</change>
+			  <change>The prosilver template now prominently displays the current category you're viewing.</change>
+			  <change>Fixed favorite list so it won't show lists for deactivated categories (previously you could change the URL and it would display any list, even if it should have been deactivated).</change>
+			  <change>You can now delete categories through the ACP. This deletes all info entered by users for that category too, so if you think you might want that info back later just deactivate the category instead.</change>
+			  <change>Removed the "default category" option from the ACP (not sure if it even worked correctly anyway). The favorite list page now displays whatever the first ordered category is when the user first views the page.</change>
+			  <change>Fixed the "favorite list length" option in the ACP so it actually works correctly.</change>
+			  <change>Fixed some bugs for calculating the forum favorites lists.</change>
+			</changelog>
+		  </entry>
+		
+		  <entry>
+			<date>2008-08-29</date>
+			<rev-version>0.5.2</rev-version>
+			<changelog lang="en">
+			  <change>Worked around IE's poor button handling code to make the Add and Search buttons work. If you had 0.5.x installed, the only changed file is /includes/ucp/ucp_favorites.php</change>
+			</changelog>
+		  </entry>
+		  
+		  <entry>
+			<date>2008-08-29</date>
+			<rev-version>0.5.1</rev-version>
+			<changelog lang="en">
+			  <change>Fixed small bug that made the current category display incorrectly on the subsilver2 theme. If you had 0.5.0 installed, the only changed file is /includes/ucp/ucp_favorites.php</change>
+			</changelog>
+		  </entry>
+		  
+		  <entry>
+			<date>2008-08-28</date>
+			<rev-version>0.5.0</rev-version>
+			<changelog lang="en">
+			  <change>Updated to MODX 1.2.0</change>
+			  <change>Added subsilver2 installation instructrions (in install_subsilver2.xml).</change>
+			  <change>Small edit added to common.php and change to edit in overall_header.html to conform to phpBB standards.</change>
+			</changelog>
+		  </entry>
+		  
+		  <entry>
+			<date>2008-08-04</date>
+			<rev-version>0.4.1</rev-version>
+			<changelog lang="en">
+			  <change>Fixed a bug in the functions_favorites.php file that caused the mod to not work on users using MySQL 4.</change>
+			  <change>There are no other differences, if you are using 0.4.0 with MySQL 5 there is no need to update.</change>
+			  <change>If you are upgrading from 0.4.0, the only changed file is /includes/functions_favorites.php</change>
+			</changelog>
+		  </entry>
+		
+		  <entry>
+			<date>2008-02-22</date>
+			<rev-version>0.4.0</rev-version>
+			<changelog lang="en">
+			  <change>The Forum Favorites list is now calculated when users edit their favorites and stored in the database, instead of being recalculated every time the page is opened. This should improve performance on boards with lots of users. </change>
+					<change>There is now a button next to each item on the Forum list that brings up a list of all the users who have that favorite listed, and links to their profiles.</change>
+					<change>The add favorite button has been replaced by an image to fit in better with the prosilver theme.</change>
+					<change>A link to the Forum Favorites page has been added to the overall site header.</change>
+					<change>Fixes and improvements to the way the profile page displays favorites info.</change>
+					<change>Some SQL field names have changed, so if you had a previous version you will need to alter your SQL tables.</change>
+			</changelog>
+		  </entry>
+
+		  <entry>
+			<date>2008-02-11</date>
+			<rev-version>0.3.1</rev-version>
+			<changelog lang="en">
+			  <change>Fixed a bug where the ACP module wouldn't work. </change>
+			  <change>Fixed a bug where the first item's Add button in the Forum Favorites list didn't work. </change>
+			  <change>Added an ACP setting to change the position of the Add button.</change>
+			</changelog>
+		  </entry>
+
+		  <entry>
+			<date>2008-02-09</date>
+			<rev-version>0.3.0</rev-version>
+			<changelog lang="en">
+			  <change>The Forum Favorites list page now displays the most popular URL that exists for that item. It now also has an Add Favorite button for each item that allows the user to add the listed Favorite to their own list. </change>
+			  <change>Updating your favorites list is now done mainly through update methods instead of delete/insert methods, making it less likely that your data will be accidentally deleted because of a server or connection error (and I think it should be slightly faster too).</change>
+			</changelog>
+		  </entry>
+		  <entry>
+			<date>2008-02-01</date>
+			<rev-version>0.2.0</rev-version>
+			<changelog lang="en">
+			  <change>There is now an ACP module that lets you set up your categories and change other settings. It also now stops users from entering multiple Favorites items with the same name.</change>
+			</changelog>
+		  </entry>
+		  <entry>
+			<date>2008-01-21</date>
+			<rev-version>0.1.0a</rev-version>
+			<changelog lang="en">
+			  <change>Added an edit to constants.php that I accidentally left out.</change>
+			</changelog>
+		  </entry>
+		  <entry>
+			<date>2008-01-20</date>
+			<rev-version>0.1.0</rev-version>
+			<changelog lang="en">
+			  <change>Initial release of the mod.</change>
+			</changelog>
+		  </entry>
+		</history>
+		
+	</header>
+
+	
+	<action-group>
+		
+		<sql><![CDATA[CREATE TABLE  phpbb_favorites_category (
+category_id MEDIUMINT( 8 ) UNSIGNED NOT NULL AUTO_INCREMENT ,
+ category_name VARCHAR( 255 ) COLLATE utf8_bin NOT NULL DEFAULT  'New Category',
+ category_order MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT  '0',
+ category_active TINYINT( 1 ) UNSIGNED NOT NULL DEFAULT  '0',
+  PRIMARY KEY  (category_id),
+  KEY (category_order),
+  KEY (category_name)
+)]]></sql>
+		<sql><![CDATA[CREATE TABLE  phpbb_favorites_user (
+user_id MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT  '0',
+ category_id MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT  '0',
+ listitem_id MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT  '0',
+ listitem_text VARCHAR( 255 ) COLLATE utf8_general_ci NOT NULL ,
+ listitem_url VARCHAR( 255 ) COLLATE utf8_general_ci NOT NULL DEFAULT  '',
+PRIMARY KEY (  user_id ,  category_id ,  listitem_id , listitem_text )
+)]]></sql>
+		<sql><![CDATA[CREATE TABLE  phpbb_favorites_special (
+type TINYINT( 4 ) UNSIGNED NOT NULL DEFAULT  '0',
+ category_id MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT  '0',
+ listitem_id MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT  '0',
+ listitem_text VARCHAR( 255 ) NOT NULL ,
+ listitem_url VARCHAR( 255 ) NOT NULL ,
+ listitem_count MEDIUMINT( 8 ) NOT NULL ,
+PRIMARY KEY (  type ,  category_id ,  listitem_id )
+)]]></sql>
+		
+		<copy>
+			
+			<file from="root/includes/ucp/ucp_favorites.php" to="includes/ucp/ucp_favorites.php" />
+			<file from="root/includes/ucp/info/ucp_favorites.php" to="includes/ucp/info/ucp_favorites.php" />
+			<file from="root/includes/acp/acp_favorites.php" to="includes/acp/acp_favorites.php" />
+			<file from="root/includes/acp/info/acp_favorites.php" to="includes/acp/info/acp_favorites.php" />
+			<file from="root/language/en/mods/info_ucp_favorites.php" to="language/en/mods/info_ucp_favorites.php" />
+			<file from="root/language/en/mods/info_acp_favorites.php" to="language/en/mods/info_acp_favorites.php" />
+			<file from="root/styles/prosilver/template/ucp_favorites_edit.html" to="styles/prosilver/template/ucp_favorites_edit.html" />
+			<file from="root/styles/prosilver/template/ucp_favorites_view_list.html" to="styles/prosilver/template/ucp_favorites_view_list.html" />
+			<file from="root/adm/style/acp_favorites.html" to="adm/style/acp_favorites.html" />
+			<file from="root/includes/functions_favorites.php" to="includes/functions_favorites.php" />
+			<file from="root/styles/prosilver/imageset/icon_ffavorites_add.gif" to="styles/prosilver/imageset/icon_ffavorites_add.gif" />
+			<file from="root/styles/prosilver/imageset/icon_ffavorites_search.gif" to="styles/prosilver/imageset/icon_ffavorites_search.gif" />
+			<file from="root/styles/prosilver/theme/images/icon_mini_ffavorites.gif" to="styles/prosilver/theme/images/icon_mini_ffavorites.gif" />
+									
+		</copy>
+		
+		<open src="memberlist.php">
+			<edit>
+				<find><![CDATA[include($phpbb_root_path . 'includes/functions_display.' . $phpEx);]]></find>
+				<action type="after-add"><![CDATA[include($phpbb_root_path . 'includes/functions_favorites.' . $phpEx);]]></action>
+			</edit>
+				
+			<edit>
+				<find><![CDATA[			$zebra_enabled = ($module->active_module === false) ? false : true;
+
+			unset($module);
+		}]]></find>
+				<action type="after-add"><![CDATA[		/******************************
+		 * Begin Forum Favorites Code *
+		 ******************************/
+		$favfunct = new favorite_functions;
+			
+		//Get already existing favorite info for this user
+		$sql = 'SELECT category_id, listitem_text, listitem_url
+			FROM ' . FAVORITES_USER_TABLE . '
+			WHERE user_id = ' . intval($user_id) . 
+			' ORDER BY category_id, listitem_id';
+		$result = $db->sql_query($sql);
+		$favorites_listitem_text = array();
+		
+		while ($row = $db->sql_fetchrow($result))
+		{
+			$favorites_listitems_text[$row['category_id']][] = ($row['listitem_url'] ? '<a href="' . $row['listitem_url'] . '">' .$row['listitem_text'] . '</a>' : $row['listitem_text']);
+		}
+		$db->sql_freeresult($result);
+
+		//pull category names from database here
+		//store them in $favorites_categories
+		$favorites_categories = $favfunct->get_favorites_categories();	
+		
+		//organize everything into the data array
+		$favorites_data=array();
+		
+		foreach ($favorites_categories as $cat)
+		{
+			$cat_text = $favorites_listitems_text[$cat['category_id']] ? implode(", ",$favorites_listitems_text[$cat['category_id']]) : '';
+			if ($cat_text) {
+				$favorites_data[(int) $cat['category_order']] = array(
+						  'favorites_text'	=>	$cat_text,
+						  'category_name'	=>	$cat['category_name'],
+						  'category_id'		=>	(int) $cat['category_id'],
+				  );			
+			}
+		}
+
+		unset($favorites_listitems_text);
+		unset($favorites_categories);
+		unset($favfunct);
+		
+		//set the template vars
+		
+		if (sizeof($favorites_data) == 0)
+		{
+			$template->assign_vars(array(
+				'S_FAVORITES'	=> 0
+				));
+		}
+		else 
+		{
+			$template->assign_vars(array(
+				'S_FAVORITES'	=> 1
+				));		
+			foreach ($favorites_data as $cat)
+			{
+				$template->assign_block_vars('favorites',array(
+					'FAVORITES_TEXT'	=> $cat['favorites_text'],
+					'L_CATEGORY_NAME'	=> $cat['category_name'],
+				));
+			}
+		}
+		unset($favorites_data);
+			
+		
+		/****************************
+		 * End Forum Favorites Code *
+		 ****************************/]]></action>
+			</edit>
+		</open>
+
+		<open src="language/en/memberlist.php">
+			<edit>
+				<find>	'FIND_USERNAME_EXPLAIN'	=> </find>
+				<action type="before-add">	'FAVORITES'				=> 'Favorites',</action>
+			</edit>
+		</open>
+		
+		<open src="language/en/ucp.php">
+			<edit>
+				<find>	'UCP_USERGROUPS_MANAGE'		=> 'Manage groups',</find>
+				<action type="after-add">								 
+	'UCP_FAVORITES'				=>	'Forum Favorites',
+	'UCP_FAVORITES_EDIT'		=>	'Edit Favorites',
+	'UCP_FAVORITES_VIEW_LIST'	=>	'View Forum Favorites',</action>
+			</edit>
+		</open>
+		
+        <open src="language/en/common.php">		
+			<edit>
+				<find><![CDATA[	'FAQ_EXPLAIN'			=> 'Frequently Asked Questions',]]></find>
+				<action type="after-add"><![CDATA[
+	'FFAVORITES'			=> 'Forum Favorites',
+	'FFAVORITES_EXPLAIN'	=> 'View Forum Favorites list',]]></action>
+			</edit>
+        </open>
+        
+		<open src="language/en/acp/common.php">
+			<edit>
+				<find><![CDATA[	'ACP_EXTENSION_GROUPS'		=> 'Manage extension groups',]]></find>		
+				<action type="after-add"><![CDATA[
+	'ACP_FAVORITES_MANAGEMENT'	=>	'Forum Favorites',
+	'ACP_FAVORITES_SETTINGS'	=>	'Forum Favorites settings',
+	'ACP_FAVORITES_CATEGORIES_CONFIG'		=>	'Edit Favorites categories',]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[	'LOG_ERROR_EMAIL'		=> '<strong>E-mail error</strong><br />» %s',]]></find>
+				<action type="after-add"><![CDATA[
+    'LOG_FAVORITES_CAT_ACTIVATE'	=> '<strong>Category activated</strong><br />» %s',
+    'LOG_FAVORITES_CAT_DEACTIVATE'	=> '<strong>Category deactivated</strong><br />» %s',
+    'LOG_FAVORITES_CAT_RENAME'	=> '<strong>Category renamed</strong><br />» %1$s -> %2$s',
+    'LOG_FAVORITES_CAT_DELETE'	=> '<strong>Category deleted</strong><br />» %s',]]></action>
+			</edit>
+		</open>		
+
+        <open src="language/en/acp/styles.php">		
+			<edit>
+				<find><![CDATA[	'UNSET'					=> 'Undefined',]]></find>
+				<action type="after-add"><![CDATA[	'IMG_CAT_FFAVORITES'			=> 'Forum Favorites icons',
+	'IMG_ICON_FFAVORITES_ADD'		=> 'Forum Favorite Add button',
+	'IMG_ICON_FFAVORITES_SEARCH'	=> 'Forum Favorite View Users button',]]></action>
+			</edit>
+        </open>
+
+		<open src="styles/prosilver/template/memberlist_view.html">
+			<edit>
+				<find><![CDATA[<!-- IF SIGNATURE -->
+<div class="panel bg1">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+		<h3>{L_SIGNATURE}</h3>
+
+		<div class="postbody"><div class="signature" style="border-top:none; margin-top: 0;">{SIGNATURE}</div></div>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[
+<!-- IF S_FAVORITES -->
+<div class="panel <!-- IF SIGNATURE -->bg2<!-- ELSE -->bg1<!-- ENDIF -->">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+		<h3>{L_FAVORITES}</h3>
+
+		<!-- BEGIN favorites -->
+		<dl class="details">
+			<dt>{favorites.L_CATEGORY_NAME}:</dt> <dd>{favorites.FAVORITES_TEXT}</dd>
+		</dl>
+		<!-- END favorites -->
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+
+        <open src="styles/prosilver/template/overall_header.html">
+			<edit>
+				<find><![CDATA[<li class="icon-faq"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>]]></find>
+				<action type="before-add"><![CDATA[<li class="icon-favorites"><a href="{U_FFAVORITES}" title="{FFAVORITES_EXPLAIN}">{L_FFAVORITES}</a></li>]]></action>
+			</edit>
+		</open>
+
+		<open src="styles/prosilver/imageset/imageset.cfg">
+			<edit>
+				<find>img_icon_user_warn = icon_user_warn.gif*20*20</find>
+				<action type="after-add">
+img_icon_ffavorites_add = icon_ffavorites_add.gif*16*16
+img_icon_ffavorites_search = icon_ffavorites_search.gif*16*16</action>
+			</edit>
+		</open>
+		
+		<open src="styles/prosilver/theme/colours.css">
+			<edit>
+				<find>.icon-search					{ background-image: url("{T_THEME_PATH}/images/icon_search.gif"); }</find>
+				<action type="after-add">.icon-favorites					{ background-image: url("{T_THEME_PATH}/images/icon_mini_ffavorites.gif"); }</action>
+			</edit>
+		</open>
+
+		<open src="styles/prosilver/theme/buttons.css">
+			<edit>
+				<find>.sitehome, .icon-faq, .icon-members, .icon-home, .icon-ucp, .icon-register, .icon-logout,</find>
+				<action type="before-add">.icon-favorites,</action>
+			</edit>
+		</open>		
+		
+
+		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[		'U_RESTORE_PERMISSIONS'	=> ($user->data['user_perm_from'] && $auth->acl_get('a_switchperm')) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=restore_perm') : '',]]></find>
+				<action type="after-add"><![CDATA[		'U_FFAVORITES'			=> append_sid("{$phpbb_root_path}ucp.$phpEx?i=favorites&amp;mode=view_list"),]]></action>
+			</edit>
+		</open>
+		
+		<open src="includes/constants.php">
+			<edit>
+                <find>define('VOTE_CONVERTED', 127);</find>
+                <action type="after-add">
+//Forum Favorites constants
+define('FAVORITES_SUCCESS',1);
+define('FAVORITES_ERR_INVALID_UID',-1);
+define('FAVORITES_ERR_INVALID_CATID',-2);
+define('FAVORITES_ERR_INVALID_TEXT',-3);
+define('FAVORITES_ERR_ITEM_EXISTS',-4);
+				</action>
+            
+				<find>// Additional tables</find>
+				<action type="after-add"><![CDATA[define('FAVORITES_USER_TABLE',      $table_prefix . 'favorites_user');
+define('FAVORITES_CATEGORY_TABLE',  $table_prefix . 'favorites_category');
+define('FAVORITES_SPECIAL_TABLE',   $table_prefix . 'favorites_special');]]></action>
+			</edit>
+		</open>
+
+		<open src="includes/acp/acp_styles.php">
+			<edit>
+				<find><![CDATA[			'ui'		=> array(
+				'upload_bar',
+			),]]></find>
+				<action type="after-add"><![CDATA[			'ffavorites'		=> array(
+				'icon_ffavorites_add', 'icon_ffavorites_search',
+			),]]></action>
+			</edit>
+		</open>
+
+		<diy-instructions lang="en">Go to the ACP to install the mod. Click on System -> User Control Panel -> Profile. 
+From the Add Module dropdown on the bottom right, choose the Edit Favorites and View Forum Favorites modules and add them, then click on Enable for each. 
+Click on the edit (gear) icon for View Forum Favorites and choose "No" for "Module displayed". 
+A link will now show up to the Edit page in the UCP under Profile and the Forum list will be accessible through a link in the forum header.
+
+Similarly you need to install the ACP module. Go to System -> Administration Control Panel. You can add the links to an existing category or create a new one. 
+I recommend creating a new category called Forum Favorites under the .MOD tab and adding the modules to that.
+Add the Forum Favorites Settings and Edit Favorites Categories modules and Enable them.
+You now need to use the ACP module to set up your categories and some inital settings before the mod can be used by users. 
+When you first go to the Forum Favorites settings screen nothing will be filled in. You can simply press submit with blank values and it will fill default settings in, or you can manually set the options.
+Make sure to activate the categories after you create them or they won't show up.
+
+Refresh your imageset cache for each style you have installed. To do this, click on the Styles tab in the ACP. Then choose Imagesets on the left bar, and click on the Refresh action for each style you have installed the mod icons for.
+
+Finally, refresh your template cache through the ACP. Use the Purge the cache option on the front page of the ACP.</diy-instructions>
+	</action-group>
+
+</mod>

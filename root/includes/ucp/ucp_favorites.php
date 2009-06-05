@@ -202,7 +202,19 @@ class ucp_favorites
 			//pull category names from database here
 			//store them in order in $favorites_categories
 			$favorites_categories = $favfunct->get_favorites_categories();	
-
+			
+			//Check to make sure categories have been set
+ 			if (sizeof($favorites_categories) == 0)
+ 			{
+// 				//If no categories, display an error message.
+				$template->assign_vars(array(
+                 'MESSAGE'	=> 'No categories defined. Favorite categories must be created by a forum administrator.',
+                 'ERROR'	=> 1,
+                 ));
+                 
+ 				break;
+ 			}
+			
 			//get the category to view
 			$catid = request_var('catid', 0);
 			
@@ -228,7 +240,7 @@ class ucp_favorites
 				}
 			}
 				
-
+		
 				
 			$button_before = $button_after = $button_col = false;
 			$button_pos = $config['favorites_add_button_pos'];
@@ -254,9 +266,9 @@ class ucp_favorites
 				'S_BUTTON_COL'		=> $button_col,
 				));			
 			
-            $message = '';
-            
-            //Add favorite item to user's list if requested
+			$message = '';
+			
+			//Add favorite item to user's list if requested
 			$add_item = request_var('add_item', 'null');
 			if ($add_item != 'null'){
 			
@@ -277,60 +289,60 @@ class ucp_favorites
 						break;
 					case FAVORITES_ERR_INVALID_UID:
 						$message = $user->lang['FAVORITES_UID_ERROR'];
-                        break;
+						break;
 					case FAVORITES_ERR_INVALID_CATID:
 						$message = $user->lang['FAVORITES_CATID_ERROR'];
-                        break;
+						break;
 					case FAVORITES_ERR_INVALID_TEXT:
 						$message = $user->lang['FAVORITES_TEXT_ERROR'];
-                        break;
+						break;
 					case FAVORITES_ERR_ITEM_EXISTS:
 						$message = $user->lang['FAVORITES_DUP_ITEM_ERROR'];
-                        break;
+						break;
 					default:
 						$message = $user->lang['FAVORITES_GENERIC_ERROR'];
-                        break;
+						break;
 				}
 				
 				$template->assign_vars(array(
 					'MESSAGE'	=> $message
 					));
 			}
-
-            //Display list of users with selected favorite if requested
+		
+			//Display list of users with selected favorite if requested
 			$view_users = request_var('view_users', 'null');					
 			if ($view_users != 'null'){
 			
-                if ($message)
-                {
-                    $message .= '<br /><br />';
-                }
-                
+				if ($message)
+				{
+					$message .= '<br /><br />';
+				}
+				
 				$text = utf8_normalize_nfc(request_var('text', '', true));
 				
-                if (!$text)
-                {
-                    $message .= $user->lang['FAVORITES_TEXT_ERROR'];
-                }
-                else 
-                {
-                    
-                    $result = $favfunct->get_favorite_users(array(
-                        'category_id'		=> $catid,
-                        'listitem_text'		=> $text
-                        ));
-                        
-                    
-                    $message .= sprintf($user->lang['FAVORITES_SEARCH_RESULTS'], sizeof($result), $text) . '<br /><br />';
-                    foreach ($result as $row)
-                    {
-                        $message .= '<a href="' . append_sid("{$phpbb_root_path}memberlist.$phpEx?mode=viewprofile&amp;u=" . intval($row['user_id'])) .
-                            '">' . $row['username'] . '</a>, ';
-                    }
-                    
-                    $message = substr($message, 0, -2);
-                }
-                    
+				if (!$text)
+				{
+					$message .= $user->lang['FAVORITES_TEXT_ERROR'];
+				}
+				else 
+				{
+					
+					$result = $favfunct->get_favorite_users(array(
+						'category_id'		=> $catid,
+						'listitem_text'		=> $text
+						));
+						
+					
+					$message .= sprintf($user->lang['FAVORITES_SEARCH_RESULTS'], sizeof($result), $text) . '<br /><br />';
+					foreach ($result as $row)
+					{
+						$message .= '<a href="' . append_sid("{$phpbb_root_path}memberlist.$phpEx?mode=viewprofile&amp;u=" . intval($row['user_id'])) .
+							'">' . $row['username'] . '</a>, ';
+					}
+					
+					$message = substr($message, 0, -2);
+				}
+					
 				$template->assign_vars(array(
 					'MESSAGE'	=> $message
 					));
@@ -351,6 +363,7 @@ class ucp_favorites
 			}
 												
 			break;
+
 		}
 		
 		$template->assign_vars(array(

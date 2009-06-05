@@ -243,7 +243,7 @@ PRIMARY KEY (  type ,  category_id ,  listitem_id )
 			WHERE user_id = ' . intval($user_id) . 
 			' ORDER BY category_id, listitem_id';
 		$result = $db->sql_query($sql);
-		$favorites_listitem_text = array();
+		$favorites_listitems_text = array();
 		
 		while ($row = $db->sql_fetchrow($result))
 		{
@@ -438,7 +438,8 @@ define('FAVORITES_ERR_INVALID_CATID',-2);
 define('FAVORITES_ERR_INVALID_TEXT',-3);
 define('FAVORITES_ERR_ITEM_EXISTS',-4);
 				</action>
-            
+            </edit>
+			<edit>
 				<find>// Additional tables</find>
 				<action type="after-add"><![CDATA[define('FAVORITES_USER_TABLE',      $table_prefix . 'favorites_user');
 define('FAVORITES_CATEGORY_TABLE',  $table_prefix . 'favorites_category');

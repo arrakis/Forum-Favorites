@@ -4,7 +4,7 @@
 * ucp_favorites [English]
 *
 * @package language
-* @version $Id: ucp_favorites.php,v 1.0.2 2008/09/17 13:23:00 agrajag Exp $
+* @version $Id: ucp_favorites.php,v 1.0.5 2009/06/05 13:23:00 agrajag Exp $
 * @copyright (c) 2008 Brian Dorfman
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
@@ -54,7 +54,8 @@ $lang = array_merge($lang, array(
 	'FAVORITES_DUP_ITEM_ERROR'	=>	'You already have that item in your list.',
 	'FAVORITES_DUP_DELETE_ERROR'    => 'Removed duplicate item: "%s"',
 	'FAVORITES_GENERIC_ERROR'	=> 'An error occured.',
-    
+	'FAVORITES_NOCATS_ERROR'	=> 'No categories defined. Favorite categories must be created by a forum administrator.',
+        
 	'FAVORITES_ADD_SUCCESS'		=>	'Successfully added \'%s\' to your list.',
     'FAVORITES_SEARCH_RESULTS'  => '%1$d users have the favorite \'%2$s\' listed.'
 

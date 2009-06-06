@@ -206,7 +206,7 @@ class ucp_favorites
 			//Check to make sure categories have been set
  			if (sizeof($favorites_categories) == 0)
  			{
-// 				//If no categories, display an error message.
+ 				//If no categories, display an error message.
 				$template->assign_vars(array(
                  'MESSAGE'	=> 'No categories defined. Favorite categories must be created by a forum administrator.',
                  'ERROR'	=> 1,

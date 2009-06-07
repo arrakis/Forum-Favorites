@@ -102,6 +102,12 @@ class ucp_favorites
 				{
 					$favorites_listitems = $unique_check = array();
 					
+					//Set to blank if doesn't exist
+					if (!array_key_exists($cat['category_id'], $box_text))
+					{
+						$box_text[$cat['category_id']] = '';
+					}
+					
                     //Don't bother if nothing changed
 					if (strcmp($cat['favorites_box'],$box_text[$cat['category_id']]) == 0)
 					{
@@ -206,9 +212,9 @@ class ucp_favorites
 			//Check to make sure categories have been set
  			if (sizeof($favorites_categories) == 0)
  			{
- 				//If no categories, display an error message.
+// 				//If no categories, display an error message.
 				$template->assign_vars(array(
-                 'MESSAGE'	=> 'No categories defined. Favorite categories must be created by a forum administrator.',
+                 'MESSAGE'	=> $user->lang['FAVORITES_NOCATS_ERROR'],
                  'ERROR'	=> 1,
                  ));
                  

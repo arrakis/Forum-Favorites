@@ -89,6 +89,24 @@ class acp_favorites
 						continue;
 					}
 
+					if (!array_key_exists($config_name, $cfg_array))
+					{
+						if ($config_name == 'favorites_flist_length')
+						{
+							$this->new_config[$config_name] = 10;
+							set_config($config_name, 10);
+						}
+						else if ($config_name == 'favorites_add_button_pos')
+						{
+							$this->new_config[$config_name] = 1;
+							set_config($config_name, 1);
+						}
+						else
+						{
+							$this->new_config[$config_name] = 0;
+						}
+						continue;
+					}
 					$this->new_config[$config_name] = $config_value = $cfg_array[$config_name];
 
                     if ($config_name == 'favorites_flist_length')
